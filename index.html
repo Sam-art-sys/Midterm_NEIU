@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Northeastern Illinois University</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+</head>
+
+<body>
+    <div id="map" style="height: 500px"></div>
+
+    <script type="text/javascript">
+        var map = L.map('map', {
+            center: [41.9804808, -87.7185165],
+            zoom: 18
+        });
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '@ <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            maxZoom: 18,
+            minZoom: 10
+        }).addTo(map);
+
+        var BBHIcon = L.icon({
+            iconUrl: 'BBH.png',
+            iconSize: [38, 38],
+            iconAnchor: [19, 19],
+            popupAnchor: [0, -10]
+        });
+
+        var LibraryIcon = L.icon({
+            iconUrl: 'Library.png',
+            iconSize: [38, 38],
+            iconAnchor: [19, 19],
+            popupAnchor: [0, -10]
+        });
+
+        var FineArtsIcon = L.icon({
+            iconUrl: 'FineArts.png',
+            iconSize: [38, 38],
+            iconAnchor: [19, 19],
+            popupAnchor: [0, -10]
+        });
+
+        var StudentsIcon = L.icon({
+            iconUrl: 'Students.png',
+            iconSize: [38, 38],
+            iconAnchor: [19, 19],
+            popupAnchor: [0, -10]
+        });
+
+        var NestIcon = L.icon({
+            iconUrl: 'Nest.png',
+            iconSize: [38, 38],
+            iconAnchor: [19, 19],
+            popupAnchor: [0, -10]
+        });
+
+        var marker1 = L.marker([41.9806117, -87.7170548], {icon: BBHIcon}).addTo(map);
+        var marker2 = L.marker([41.98036777035613, -87.71898699801929], {icon: LibraryIcon}).addTo(map);
+        var marker3 = L.marker([41.9814219, -87.7191847], {icon: FineArtsIcon}).addTo(map);
+        var marker4 = L.marker([41.9817792, -87.7185057], {icon: StudentsIcon}).addTo(map);
+        var marker5 = L.marker([41.9797461, -87.7197853], {icon: NestIcon}).addTo(map);
+
+        var pic1 = '<img src="https://www.neiu.edu/sites/neiu.edu/files/brand/body-images/neiu-bbh-wallpaper.jpg" alt="BBH" width="250">';
+        var pic2 = '<img src="https://www.neiu.edu/sites/default/files/styles/feature_image/public/hub.neiu.edu/news-images/2017/01/19/LOC-main-campus-library.jpg?itok=o60iSavx" alt="Ronald Williams Library" width="250">';
+        var pic3 = '<img src="https://www.neiu.edu/sites/default/files/styles/feature_image/public/news-images/2020/07/10/LOC-fine-arts-209_1.jpg?itok=YRVyfxig" alt="Fine Arts" width="250">';
+        var pic4 = '<img src="https://www.neiu.edu/sites/neiu.edu/files/brand/body-images/neiu-campus-wallpaper.jpg" alt="Student Union" width="250">';
+        var pic5 = '<img src="https://neiuindependent.org/wp-content/uploads/2018/12/The-Nest-Sign-900x600.jpg" alt="The Nest" width="250">';
+
+        marker1.bindPopup('<p style="color:blue; font-weight:bold"> Science Building: BBH </p>' + pic1);
+        marker2.bindPopup('<p style="color:blue; font-weight:bold"> Ronald Williams Library </p>' + pic2);
+        marker3.bindPopup('<p style="color:blue; font-weight:bold"> Fine Arts Center </p>' + pic3);
+        marker4.bindPopup('<p style="color:blue; font-weight:bold"> Student Union </p>' + pic4);
+        marker5.bindPopup('<p style="color:blue; font-weight:bold"> Student Housing: The Nest </p>' + pic5);
+    </script>
+</body>
+</html>
